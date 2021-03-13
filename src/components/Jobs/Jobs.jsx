@@ -1,12 +1,14 @@
-import React, {cloneElement, useEffect} from 'react'
-import {JOBS} from 'modules/api/endpoints'
-import api from 'modules/api/api'
-import {useSelector} from 'react-redux'
-
+import React, { useEffect } from 'react'
+import { JOBS } from 'modules/api/endpoints'
+import useFetch from 'hooks/useFetch'
 
 export default function Jobs() {
-  const state = useSelector(state => state)
-  console.log(state)
+  const {response, performFetch} = useFetch(JOBS)
+  useEffect(() => {
+    performFetch()
+  }, [performFetch])
+  console.log(response);
+  
   return (
     <div>
       Jobs Component
