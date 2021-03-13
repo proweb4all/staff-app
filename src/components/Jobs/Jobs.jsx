@@ -1,13 +1,12 @@
-import React, {useEffect} from 'react'
+import React, {cloneElement, useEffect} from 'react'
 import {JOBS} from 'modules/api/endpoints'
 import api from 'modules/api/api'
+import {useSelector} from 'react-redux'
 
 
 export default function Jobs() {
-  useEffect(async () => {
-    const response = await api.fetch(JOBS)
-    console.log(response)
-  }, [])
+  const state = useSelector(state => state)
+  console.log(state)
   return (
     <div>
       Jobs Component
